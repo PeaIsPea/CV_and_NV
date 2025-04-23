@@ -8,6 +8,9 @@ from sklearn.ensemble import RandomForestClassifier
 from sklearn.neighbors import KNeighborsClassifier
 from sklearn.model_selection import GridSearchCV
 from sklearn.metrics import accuracy_score, classification_report, confusion_matrix
+from evaluate_model import evaluate_model
+import joblib
+
 
 # Load features
 def load_features(csv_path):
@@ -53,15 +56,15 @@ print("✅ Best model + params:", grid.best_estimator_)
 print("✅ Best CV accuracy:", grid.best_score_)
 
 # Đánh giá trên validation
-print("\n📊 Validation Results:")
-y_val_pred = grid.predict(X_val)
-print("Accuracy:", accuracy_score(y_val, y_val_pred))
-print("Classification Report:\n", classification_report(y_val, y_val_pred))
-print("Confusion Matrix:\n", confusion_matrix(y_val, y_val_pred))
+evaluate_model(grid, X_val, y_val, "Validation")
 
 # Đánh giá trên test
-print("\n🧪 Test Results:")
-y_test_pred = grid.predict(X_test)
-print("Accuracy:", accuracy_score(y_test, y_test_pred))
-print("Classification Report:\n", classification_report(y_test, y_test_pred))
-print("Confusion Matrix:\n", confusion_matrix(y_test, y_test_pred))
+evaluate_model(grid, X_test, y_test, "Test")
+
+
+
+# Lưu model tốt nhất sau GridSearch
+model_path = os.path.join("..", "models", "best_model.pkl")
+os.makedirs(os.path.dirname(model_path), exist_ok=True)
+joblib.dump(grid.best_estimator_, model_path)
+print(f"\n💾 Saved best model to {model_path}")

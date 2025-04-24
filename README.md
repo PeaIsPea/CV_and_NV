@@ -25,8 +25,6 @@ Streamlit app allows users to upload videos and view predictions easily.
 ### 🔁 Backend API
 A simple Flask API receives video uploads and returns predictions.
 
-### 🔁 Backend API
-
 --- ▶️ Install
 1. **Navigate to the `app/` directory:** 📂 `in app/`
 

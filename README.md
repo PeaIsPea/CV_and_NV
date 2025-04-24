@@ -30,10 +30,10 @@ A simple Flask API receives video uploads and returns predictions.
 ## 📊 Model Evaluation
 
 ### 🧪 Validation Results
-![Validation Metrics](./images/68c9a4c5-0458-44e4-b4e6-45f4bedb79d8.png)
+![Validation Metrics](/images/val-metrics.png)
 
 ### 🧪 Test Results
-![Test Metrics](./images/54d9baad-e129-4461-84d8-765174ad6b6e.png)
+![Test Metrics](/images/test-metrics.png)
 
 ---
 
@@ -51,16 +51,28 @@ A simple Flask API receives video uploads and returns predictions.
 ## 📁 Project Structure
 
 ```
-project/
-├── app/               # Flask API
+Project/
+├── app/                     # Flask API
 │   ├── main.py
 │   └── utils.py
-├── model/
-│   └── best_model.joblib
-├── scripts/           # Model training
-│   └── train_model.py
-├── web/               # Streamlit UI
+├── features/
+│   ├── test_features.csv
+│   ├── train_features.csv
+│   └── val_features.csv
+├── models/
+│   └── best_model.pkl
+├── scripts/                  # Model training
+│   ├── train_model.py
+│   ├── evaluate_model.py
+│   ├── extract_features.py
+│   └── extract_frames.py
+├── web/                      # Streamlit UI
 │   └── app.py
+├── images/
+│   ├── test-metrics.png
+│   ├── val-metrics.png
+│   ├── test-non.gif
+│   ├── test-yes.gif
 └── README.md
 ```
 
@@ -84,7 +96,7 @@ project/
 
 ## 🙌 Author
 
-Built with ❤️ by [Your Name]
+Built with ❤️ by [Pea(Nguyen Ngoc Phuc)]
 
 Feel free to fork, use or extend for your own projects or portfolio!
 
@@ -92,4 +104,4 @@ Feel free to fork, use or extend for your own projects or portfolio!
 
 ## 📬 Contact
 
-If you'd like to connect: [your.email@example.com] | [LinkedIn/GitHub Profile]
+If you'd like to connect: [nnphuc2201@gmail.com] | [LinkedIn: https://www.linkedin.com/in/nguyen-ngoc-phuc-914286318//GitHub Profile]

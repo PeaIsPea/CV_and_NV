@@ -7,17 +7,20 @@ from skimage.transform import resize
 from sklearn.preprocessing import LabelEncoder
 import csv
 
+# Extract HOG features from a single image
 def extract_hog_features(image_path):
     try:
-        image = imread(image_path)
-        gray = rgb2gray(image)
-        resized = resize(gray, (128, 64), anti_aliasing=True)  # Resize đồng nhất
+        image = imread(image_path)                       # Load image
+        gray = rgb2gray(image)                           # Convert to grayscale
+        resized = resize(gray, (128, 64), anti_aliasing=True)  # Resize image
         feature = hog(resized, pixels_per_cell=(16, 16), cells_per_block=(2, 2), feature_vector=True)
         return feature
     except Exception as e:
-        print(f"[SKIP] Lỗi ảnh {image_path}: {e}")
+        print(f"[SKIP] Error with image {image_path}: {e}")
         return None
 
+
+# Extract features from all frames in a dataset split
 def process_split_frames(split_dir):
     x = []
     y = []
@@ -43,21 +46,23 @@ def process_split_frames(split_dir):
 
                 if features:
                     try:
-                        avg_feature = np.mean(features, axis=0)
+                        avg_feature = np.mean(features, axis=0) # Average over frames
                         x.append(avg_feature)
                         y.append(label)
                     except Exception as e:
-                        print(f"[SKIP] Video {video_name} gặp lỗi khi tính trung bình: {e}")
+                        print(f"[SKIP] Error averaging video: {e}")
 
     return np.array(x), label_encoder.fit_transform(y)
 
+
+# Save features and labels to CSV
 def save_features_to_csv(x, y, out_path):
     with open(out_path, mode='w', newline='') as f:
         writer = csv.writer(f)
         for feature, label in zip(x, y):
             writer.writerow(np.append(feature, label))
 
-# Đường dẫn thư mục frames
+# Process all dataset splits
 base_frames = os.path.abspath(os.path.join(os.path.dirname(__file__), "..", "frames"))
 
 # xử lý từng tập train/val/test

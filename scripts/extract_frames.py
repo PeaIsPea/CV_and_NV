@@ -1,7 +1,7 @@
 import os
 import cv2
 
-
+# Extract frames from a single video file
 def extract_frames_from_video(video_path, output_folder, frame_interval=30):
     """
     Trích xuất frame từ video và lưu vào thư mục output.
@@ -22,13 +22,15 @@ def extract_frames_from_video(video_path, output_folder, frame_interval=30):
         if count % frame_interval == 0:
             frame_filename = f"{os.path.splitext(os.path.basename(video_path))[0]}_frame{saved_frame}.jpg"
             frame_path = os.path.join(output_folder, frame_filename)
-            cv2.imwrite(frame_path, frame)
+            cv2.imwrite(frame_path, frame) # Save frame as image
             saved_frame += 1
 
         count += 1
 
     cap.release()
 
+
+# Process all videos in a dataset split (train/val/test)
 def process_dataset_split(split_dir, output_root, frame_interval=30):
     for label in ["violent", "non_violent"]:
         input_folder = os.path.join(split_dir, label)
@@ -42,7 +44,7 @@ def process_dataset_split(split_dir, output_root, frame_interval=30):
                 video_path = os.path.join(input_folder, video_file)
                 extract_frames_from_video(video_path, output_folder, frame_interval)
 
-# Ví dụ chạy:
+# Example usage
 process_dataset_split("../data/train", "../frames", frame_interval=30)
 process_dataset_split("../data/val", "../frames", frame_interval=30)
 process_dataset_split("../data/test", "../frames", frame_interval=30)

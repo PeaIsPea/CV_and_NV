@@ -28,13 +28,13 @@ A simple Flask API receives video uploads and returns predictions.
 ### 🔁 Backend API
 
 --- ▶️ Install
-1. **Navigate to the `app/` directory:** 📂 `cd app/`
+1. **Navigate to the `app/` directory:** 📂 `in app/`
 
-2. **Run the `main.py` file (Flask API):** 🐍 `python main.py`
+2. **Run the `main.py` file (Flask API):** 🐍 `run main.py`
 
-3. **Navigate to the `web/` directory:** 📂 `cd ../web/`
+3. **Navigate to the `web/` directory:** 📂 `cd web/`
 
-4. **Run the Streamlit UI:** 🌐 `streamlit run app.py
+4. **Run the Streamlit UI:** 🌐 `streamlit run app.py`
 
 ## 📊 Model Evaluation
 

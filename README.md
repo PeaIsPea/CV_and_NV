@@ -3,8 +3,6 @@
 
 This project is a web-based demo for detecting **violent** and **non-violent** videos using traditional Machine Learning techniques (without Deep Learning). The system processes a short video, extracts features, and returns whether the content is violent or not.
 
-![Demo GIF here](<PLACEHOLDER_FOR_GIF>) <!-- You can replace this with a local path or URL later -->
-
 ---
 
 ## 📌 Project Highlights
@@ -78,7 +76,9 @@ project/
 
 ## 📸 Demo
 
-> _(Insert your GIF of the demo here once ready)_
+![Demo GIF here](images/test-non.gif) 
+
+![Demo GIF here](images/test-yes.gif) <!-- You can replace this with a local path or URL later -->
 
 ---
 

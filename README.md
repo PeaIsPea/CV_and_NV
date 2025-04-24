@@ -3,8 +3,6 @@
 
 This project is a web-based demo for detecting **violent** and **non-violent** videos using traditional Machine Learning techniques (without Deep Learning). The system processes a short video, extracts features, and returns whether the content is violent or not.
 
-![Demo GIF here](<PLACEHOLDER_FOR_GIF>) <!-- You can replace this with a local path or URL later -->
-
 ---
 
 ## 📌 Project Highlights
@@ -27,15 +25,24 @@ Streamlit app allows users to upload videos and view predictions easily.
 ### 🔁 Backend API
 A simple Flask API receives video uploads and returns predictions.
 
----
+### 🔁 Backend API
+
+--- ▶️ Install
+1. **Navigate to the `app/` directory:** 📂 `in app/`
+
+2. **Run the `main.py` file (Flask API):** 🐍 `run main.py`
+
+3. **Navigate to the `web/` directory:** 📂 `cd web/`
+
+4. **Run the Streamlit UI:** 🌐 `streamlit run app.py`
 
 ## 📊 Model Evaluation
 
 ### 🧪 Validation Results
-![Validation Metrics](./images/68c9a4c5-0458-44e4-b4e6-45f4bedb79d8.png)
+![Validation Metrics](/images/val-metrics.png)
 
 ### 🧪 Test Results
-![Test Metrics](./images/54d9baad-e129-4461-84d8-765174ad6b6e.png)
+![Test Metrics](/images/test-metrics.png)
 
 ---
 
@@ -53,16 +60,28 @@ A simple Flask API receives video uploads and returns predictions.
 ## 📁 Project Structure
 
 ```
-project/
-├── app/               # Flask API
+Project/
+├── app/                     # Flask API
 │   ├── main.py
 │   └── utils.py
-├── model/
-│   └── best_model.joblib
-├── scripts/           # Model training
-│   └── train_model.py
-├── web/               # Streamlit UI
+├── features/
+│   ├── test_features.csv
+│   ├── train_features.csv
+│   └── val_features.csv
+├── models/
+│   └── best_model.pkl
+├── scripts/                  # Model training
+│   ├── train_model.py
+│   ├── evaluate_model.py
+│   ├── extract_features.py
+│   └── extract_frames.py
+├── web/                      # Streamlit UI
 │   └── app.py
+├── images/
+│   ├── test-metrics.png
+│   ├── val-metrics.png
+│   ├── test-non.gif
+│   ├── test-yes.gif
 └── README.md
 ```
 
@@ -78,13 +97,15 @@ project/
 
 ## 📸 Demo
 
-> _(Insert your GIF of the demo here once ready)_
+![Demo GIF here](images/test-non.gif) 
+
+![Demo GIF here](images/test-yes.gif) <!-- You can replace this with a local path or URL later -->
 
 ---
 
 ## 🙌 Author
 
-Built with ❤️ by [Your Name]
+Built with ❤️ by Pea(Nguyen Ngoc Phuc)
 
 Feel free to fork, use or extend for your own projects or portfolio!
 
@@ -92,4 +113,4 @@ Feel free to fork, use or extend for your own projects or portfolio!
 
 ## 📬 Contact
 
-If you'd like to connect: [your.email@example.com] | [LinkedIn/GitHub Profile]
+If you'd like to connect: nnphuc2201@gmail.com | LinkedIn: https://www.linkedin.com/in/nguyen-ngoc-phuc-914286318/
